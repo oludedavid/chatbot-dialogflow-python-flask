@@ -1,0 +1,29 @@
+Intents are used to categorize a users intentions into separate categories.
+dialogflow comes with two default intents out of the box:
+a. Default welcome intent: default welcome intent is usually used to send a welcome message or introduction
+b. Default Fallback Intent: when the agent is unable to match the users input to a specified intent, this intent is triggered. it provides a generic response to the unexpected query.
+
+Training phrases: A set of phrases that may be asked by the end users of the chatbot.
+
+Actions: An action is a task or operation associated with fulfillment or webhook functionality that can be performed when this intent is matched.
+
+Parameters: Parameters are used to extract specific information from the users input and match it with intent. Allows 
+the chatbot to gather only the important details necessary to fulfull the users request.
+
+While actions and parameters are optional components, they play a key role in enhancing the bots performance.
+
+The setup:
+
+Step 1
+a. Create and activate a virtual environement
+i. python3 -m venv venv
+
+b. Activate the virtual environment and install flask, python_dotenv, and openai
+i. source venv/bin/activate - activates the virtual environment
+ii. pip install flask python_dotenv openai
+
+c. create a gitignore file that ignores the env environment
+
+Step 2
+/dialogflow/es/receiveMessage - This is the main route, intented to handle POST requests from Dialogflow. It receives JSON data from the request, calls the "text_completion" function with a "query_text"
+and prints the result. Depending on the "result" status, it returns a JSON response with the fulfillment text.
